@@ -1,1 +1,226 @@
+# Introduction
+<div align="justify">
+  Linear programming, or linear optimization, is a mathematical technique used to find the best possible outcome in a given mathematical model.
+  <p></p>
+The model is characterized by <b>linear</b> relationships, meaning that the objective function and constraints are linear equations or inequalities.
+</div>
+<br>
 
+<b>Basic definitions:</b>
+1. Decision variable:
+
+   <div align="justify">Variables that the decision-maker can control, where the <b>values determine the solution of the model.</b></div>
+2. Objective function:
+
+   <div align="justify"><b>Formulation of the goal</b> of the optimization problem, representing what is needed to be <b>maximized or minimized.</b></div>
+3. Constraints:
+
+   <div align="justify"><b>Restrictions imposed</b> on the values of the <b>decision variables.</b></div>
+4. Nonnegativity constraint:
+
+   <div align="justify"><b>Restriction</b> in an optimization problem, requiring certain <b>decision variables</b> to take values <b>≥0</b>.</div>
+
+## <b>Example 1 (Question)</b>
+<div align="justify">
+An iron foundry has to <b>produce 1000kg (1 tonne) of castings</b> containing <b>at least 0.45% manganese</b> and <b>between 3.25% and 5.5% silicon</b>. As these particular castings are a special order, there are no suitable castings on hand. The <b>castings sell for $0.45 per kg</b>. The foundry has 3 types of pig iron available in essentially unlimited amounts, with the following properties:
+</div>
+<table align="center">
+    <tbody>
+    <tr align="center">
+      <td rowspan="2"></td>
+      <td colspan="3">Type of pig iron</td>
+    </tr>
+    <tr align="center">
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Silicon</td>
+      <td align="center">4.00%</td>
+      <td align="center">1.00%</td>
+      <td align="center">0.60%</td>
+    </tr>
+    <tr align="center">
+      <td>Manganese</td>
+      <td>0.45%</td>
+      <td>0.50%</td>
+      <td>0.40%</td>
+    </tr>
+  </tbody>
+</table>
+<div align="justify">
+Further, the production process is such that <b>pure manganese can also be added directly to the melt.</b> The costs of all possible inputs are:
+</div>
+<table align="center">
+    <tbody>
+    <tr>
+      <td>Pig A</td>
+      <td >$21/tonne</td>
+    </tr>
+    <tr>
+      <td>Pig B</td>
+      <td>$25/tonne</td>
+    </tr>
+    <tr>
+      <td>Pig C</td>
+      <td>$15/tonne</td>
+    </tr>
+    <tr>
+      <td>Manganese</td>
+      <td>$8/kg</td>
+    </tr>
+  </tbody>
+</table>
+<div align="justify">
+It <b>costs 0.5 cents to melt down a pound of pig iron.</b> Out of <b>what inputs</b> should the foundry <b>produce the castings</b> in order to <b>maximize profits?</b>
+</div>
+
+## <b>Example 1 (Answer)</b>
+### Defining decision variables
+<div align="justify">
+  First, <b>the decisions</b> that the decision-maker can <b>control</b> are <b>how much pig iron A, B, C and pure manganese to use</b> to produce the castings. This gives the <b>decision variables</b> as such:
+</div>
+<table align="center">
+    <tbody>
+    <tr>
+      <td>x<sub>1</sub></td>
+      <td >Tonnes of pig iron A</td>
+    </tr>
+    <tr>
+      <td>x<sub>2</sub></td>
+      <td >Tonnes of pig iron B</td>
+    </tr>
+    <tr>
+      <td>x<sub>3</sub></td>
+      <td >Tonnes of pig iron C</td>
+    </tr>
+    <tr>
+      <td>x<sub>4</sub></td>
+      <td >kg of pure manganese</td>
+    </tr>
+  </tbody>
+</table>
+
+### Defining objective function
+<div align="justify">
+  Next, we need to <b>maximize the total profit</b> resulting from the production of 1000kg (1 tonne) of castings.
+</div>
+<div align="center">
+  Profit = Total income - Total cost
+</div>
+<br>
+<div align="justify">
+  Since we are selling exactly 1 tonne of casting iron, and with a selling price of $0.45/kg. This gives the <b>total income</b> as
+</div>
+<br>
+<div align="center">
+  Total income = $0.45/kg × $1000kg = $450
+</div>
+<br>
+<div align="justify">
+  Now, the cost to melt is $0.005/kg, making the cost of each pig iron (combined with the cost provided in the question) as follow:
+</div>
+<table align="center">
+    <tbody>
+    <tr>
+      <td>Pig iron A</td>
+      <td >21 + 5 = 26</td>
+    </tr>
+    <tr>
+      <td>Pig iron B</td>
+      <td >25 + 5 = 30</td>
+    </tr>
+      <tr>
+      <td>Pig iron C</td>
+      <td >15 + 5 = 20</td>
+    </tr>
+  </tbody>
+</table>
+<div align="justify">
+  Therefore, this brings the <b>total cost</b> to:
+</div>
+<br>
+<div align="center">
+  Total cost = 26x<sub>1</sub> + 30x<sub>2</sub> + 20x<sub>3</sub> + 8x<sub>4</sub>
+</div>
+<br>
+<div align="justify">
+  This makes the <b>total profit to maximize</b> as
+</div>
+<br>
+<div align="center">
+  Total profit = 450 - 26x<sub>1</sub> - 30x<sub>2</sub> - 20x<sub>3</sub> - 8x<sub>4</sub>
+</div>
+<br>
+<div align="justify">
+  From this equation we can see that since $450 is fixed, <b>in order to maximize profit</b>, we <b>have to minimize the total cost</b>, this gives the <b>objective function</b> as:
+</div>
+<br>
+<div align="center">
+  Minimize z = 26x<sub>1</sub> + 30x<sub>2</sub> + 20x<sub>3</sub> + 8x<sub>4</sub>
+</div>
+
+### Defining constraints
+<ol>
+<li>No mention of keeping any supply of castings on hand, so total amount to be produced exactly equal to 1000kg.</li>
+<br>
+<div align="center">
+  1000x<sub>1</sub> + 1000x<sub>2</sub> + 1000x<sub>3</sub> + x<sub>4</sub> = 1000
+</div>
+<br>
+<li>There should be at least 0.45% manganese, or 4.5kg in the 1000kg castings produced. Since pig iron A, B, and C has 0.45%, 0.5% and 0.4% of Manganese each, they contribute 4.5kg, 5kg and 4kg of Manganese respectively for every 1000kg of pig iron, giving the constraint:</li>
+<br>
+<div align="center">
+  4.5x<sub>1</sub> + 5.0x<sub>2</sub> + 4.0x<sub>3</sub> + x<sub>4</sub> ≥ 4.5
+</div>
+<br>
+<li>The silicon content can be similarly represented by the following inequalities:</li>
+<br>
+<div align="center">
+  40x<sub>1</sub> + 10x<sub>2</sub> + 6x<sub>3</sub> ≥ 32.5
+<br>  
+  40x<sub>1</sub> + 10x<sub>2</sub> + 6x<sub>3</sub> ≤ 55.0
+</div>
+<br>
+<li>Finally, we have the <b>nonnegative constraints</b>, as the amount of pig irons and pure manganese used cannot be negative</li>
+  <br>
+<div align="center">
+  x<sub>1</sub> ≥ 0, x<sub>2</sub> ≥ 0, x<sub>3</sub> ≥ 0, x<sub>4</sub> ≥ 0
+</div>
+</ol>
+
+### Solving linear problem
+<div align="justify">
+  The problem can now be formally formulated as:
+</div>
+<div align="center">
+  Minimize z = 26x<sub>1</sub> + 30x<sub>2</sub> + 20x<sub>3</sub> + 8x<sub>4</sub>,
+</div>
+<div align="justify">
+  Subject to:
+</div>
+<div align="center">
+  1000x<sub>1</sub> + 1000x<sub>2</sub> + 1000x<sub>3</sub> + x<sub>4</sub> = 1000,<br>
+  4.5x<sub>1</sub> + 5.0x<sub>2</sub> + 4.0x<sub>3</sub> + x<sub>4</sub> ≥ 4.5,<br>
+  40x<sub>1</sub> + 10x<sub>2</sub> + 6x<sub>3</sub> ≥ 32.5,<br>
+  40x<sub>1</sub> + 10x<sub>2</sub> + 6x<sub>3</sub> ≤ 55.0,<br>
+  x<sub>1</sub> ≥ 0, x<sub>2</sub> ≥ 0, x<sub>3</sub> ≥ 0, x<sub>4</sub> ≥ 0.
+</div>
+<br>
+<div align="justify">
+  where the <b>simplex method</b> will be used to solve this minimization, obtaining the <b>optimal solution</b> of:
+</div>
+<br>
+<div align="center">
+  0.779x<sub>1</sub> + 0.22x<sub>3</sub> + 0.111x<sub>4</sub> = 25.54
+</div>
+<br>
+<div align="justify">
+  or in other words, produce <b>0.779 tonnes of Pig iron A, 0.22 tonnes of Pig iron B and use 0.111kg of pure manganese to have a total cost of $25.54 per tonne.</b>
+</div>
+
+## Conclusion
+<div align="justify">
+  In this <b>Introduction</b>, we have shown how to formulate an optimization problem to solve with linear programming, along with the definitions of commonly used terms. In the next chapter, we will see how to use the <b>simplex method</b> to obtain the optimal solution.
+</div>
