@@ -1,0 +1,356 @@
+# 3.5 Alternative Optimal Solutions and Shadow Prices
+## 3.5.1 Alternative Optimal Solutions
+<div align='justify'>
+  <b>Claim:</b> if <b>all reduced cost</b> of <b>nonbasic variables</b> are strictly <b>negative (positive)</b> in a <b>maximization (minimization)</b> problem, then there is <b>NO</b> alternative optimal solution. On the other hand, <b>if one or more</b> of the <b>reduced cost</b> are <b>zero,</b> there <b>MAY exist</b> alternative optimal solutions.<br><br>
+  <b>Justification:</b> When all reduced costs are negative (positive), introducing any variable into the basis will reduce (increase) the value of the objective function. On the other hand, introducing the variable with zero reduced cost will not affect the objective function.<br><br>
+  Note: the minimization scenarios are written in brackets ().
+</div>
+
+### Example
+<div align='justify'>
+  Let us consider the same example as before, but now the contribution of x<sub>3</sub> is 6 4/7<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <td>
+        Maximize z = 5x<sub>1</sub> + 4.5x<sub>2</sub> + $$6 \frac{4}{7}$$ x<sub>3</sub> (hundreds of dollars)
+        <div align='left'>
+          subject to:
+        </div>
+        6x<sub>1</sub> + 5x<sub>2</sub> + 8x<sub>3</sub> ≤ 60 (production capacity; hours)<br>
+        10x<sub>1</sub> + 20x<sub>2</sub> + 10x<sub>3</sub> ≤ 150 (warehouse capacity; hundreds if sq. ft.)<br>
+        x<sub>1</sub> ≤ 8 (demand for glass x<sub>1</sub>)<br>
+        x<sub>1</sub> ≥ 0, x<sub>2</sub> ≥ 0, x<sub>3</sub> ≥ 0<br>
+      </td>
+    </tr>
+  </table>
+  So now the reduced cost (contribution - opportunity cost) of x<sub>3</sub> is 0, giving the following final tableau:<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <th>Basic variables</th>
+      <th>Current values</th>
+      <th>x<sub>1</sub></th>
+      <th>x<sub>2</sub></th>
+      <th>x<sub>3</sub></th>
+      <th>x<sub>4</sub></th>
+      <th>x<sub>5</sub></th>
+      <th>x<sub>6</sub></th>
+      <th align='left'>Equation</th>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>2</sub></td>
+      <td>$$4 \frac{2}{7}$$</td>
+      <td></td>
+      <td>1</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$- \frac{1}{7}$$</td>
+      <td>$$\frac{3}{35}$$</td>
+      <td></td>
+      <td align='left'>1</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>6</sub></td>
+      <td>$$1 \frac{4}{7}$$</td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{11}{7}$$</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$\frac{1}{14}$$</td>
+      <td>1</td>
+      <td align='left'>2</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>1</sub></td>
+      <td>$$6 \frac{3}{7}$$</td>
+      <td>1</td>
+      <td></td>
+      <td>$$\frac{11}{7}$$</td>
+      <td>$$\frac{2}{7}$$</td>
+      <td>$$- \frac{1}{14}$$</td>
+      <td></td>
+      <td align='left'>3</td>
+    </tr>
+    <tr align='center'>
+      <td>(-z)</td>
+      <td>$$-51 \frac{3}{7}$$</td>
+      <td></td>
+      <td></td>
+      <td>$$0$$</td>
+      <td>$$- \frac{11}{14}$$</td>
+      <td>$$- \frac{1}{35}$$</td>
+      <td></td>
+      <td align='left'>4</td>
+    </tr>
+  </table>
+  Thus implying that x<sub>3</sub> could be <b>introduced into the basis without altering the value of the objective function.</b> By using the ratio rule, the variable dropped from the basis is x<sub>1</sub>, with ratio of 45/11.<br><br>
+  By performing pivoting, we will get the following new values in the final tableau:<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <th>Basic variables</th>
+      <th>Current values</th>
+      <th>x<sub>1</sub></th>
+      <th>x<sub>2</sub></th>
+      <th>x<sub>3</sub></th>
+      <th>x<sub>4</sub></th>
+      <th>x<sub>5</sub></th>
+      <th>x<sub>6</sub></th>
+      <th align='left'>Equation</th>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>2</sub></td>
+      <td>$$\frac{60}{11}$$</td>
+      <td>$$\frac{2}{11}$$</td>
+      <td>1</td>
+      <td></td>
+      <td>$$- \frac{1}{11}$$</td>
+      <td>$$\frac{4}{55}$$</td>
+      <td></td>
+      <td align='left'>5 = 1 + $$\frac{2}{7}$$ 7</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>6</sub></td>
+      <td>8</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td align='left'>6 = 2 + $$\frac{11}{7}$$</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>3</sub></td>
+      <td>$$\frac{45}{11}$$</td>
+      <td>$$\frac{7}{11}$$</td>
+      <td></td>
+      <td>1</td>
+      <td>$$\frac{2}{11}$$</td>
+      <td>$$- \frac{1}{22}$$</td>
+      <td></td>
+      <td align='left'>7 = $$\frac{7}{11}$$ 3</td>
+    </tr>
+    <tr align='center'>
+      <td>(-z)</td>
+      <td>$$-51 \frac{3}{7}$$</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+      <td>$$- \frac{11}{14}$$</td>
+      <td>$$- \frac{1}{35}$$</td>
+      <td></td>
+      <td align='left'>8 = 4 (not changed as coefficient of x<sub>3</sub> already 0)</td>
+    </tr>
+  </table>
+  From here we see that the optimal solution remains, just that the basic variables and their values are different, giving an <b>alternative optimal solution.</b> It should be pointed out that any <b>weighted combination of these two solutions</b> is then also an alternative optimal soltion.<br><br>
+</div>
+
+## 3.5.2 Alternative Shadow Prices
+<div align='justify'>
+  <b>Claim:</b> if <b>all RHS values</b> in <b>final tableau</b> are <b>positive,</b> then there <b>DO NOT</b> exist <b>alternative optimal shadow prices.</b> Alternatively, <b>if one or more RHS are zero,</b> then there <b>MAY</b> exist <b>alternative optimal shadow prices.</b><br><br>
+  <b>Justification:</b> When all RHS is positive, then the basis is <b>uniqie,</b> meaning that there is exactly one set of basic variables that gives this optimal corner. The shadow prices are also unique as it is <b>determined uniquely by the optimal basis.</b> In the other hand, if one or more of the RHS is 0, then we have a <b>degeneracy.</b> The solution is now at a corner where more than n constraints intersect. Multiple different bases may represent the same extreme point, giving <b>different shadow prices that are all optimal.</b>
+</div>
+
+### Example
+<div align='justify'>
+  Let us consider the same example as before, but now the storage capacity is 128, meaning that<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <td>
+        $$\Delta b_2 = -22$$
+      </td>
+    </tr>
+  </table>
+  Recall in <b>3.4 Variations in the Righthand-side Values</b> we did an example on changing RHS of constraint 2, as shown in the table below:<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <th>Basic variables</th>
+      <th>Current values</th>
+      <th>x<sub>1</sub></th>
+      <th>x<sub>2</sub></th>
+      <th>x<sub>3</sub></th>
+      <th>x<sub>4</sub></th>
+      <th>x<sub>5</sub></th>
+      <th>x<sub>6</sub></th>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>2</sub></td>
+      <td>$$4 \frac{2}{7} + \frac{3}{35} \Delta b_2$$</td>
+      <td></td>
+      <td>1</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$- \frac{1}{7}$$</td>
+      <td>$$\frac{3}{35}$$</td>
+      <td></td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>6</sub></td>
+      <td>$$1 \frac{4}{7} + \frac{1}{14} \Delta b_2$$</td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{11}{7}$$</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$\frac{1}{14}$$</td>
+      <td>1</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>1</sub></td>
+      <td>$$6 \frac{3}{7} - \frac{1}{14} \Delta b_2$$</td>
+      <td>1</td>
+      <td></td>
+      <td>$$\frac{11}{7}$$</td>
+      <td>$$\frac{2}{7}$$</td>
+      <td>$$- \frac{1}{14}$$</td>
+      <td></td>
+    </tr>
+    <tr align='center'>
+      <td>(-z)</td>
+      <td>$$-51 \frac{3}{7} - \frac{1}{35} \Delta b_2$$</td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{4}{7}$$</td>
+      <td>$$- \frac{11}{14}$$</td>
+      <td>$$- \frac{1}{35}$$</td>
+      <td></td>
+    </tr>
+  </table>
+  By applying the change amount specified previously, we get the following table:<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <th>Basic variables</th>
+      <th>Current values</th>
+      <th>x<sub>1</sub></th>
+      <th>x<sub>2</sub></th>
+      <th>x<sub>3</sub></th>
+      <th>x<sub>4</sub></th>
+      <th>x<sub>5</sub></th>
+      <th>x<sub>6</sub></th>
+      <th align='left'>Equation</th>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>2</sub></td>
+      <td>$$\frac{12}{5}$$</td>
+      <td></td>
+      <td>1</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$- \frac{1}{7}$$</td>
+      <td>$$\frac{3}{35}$$</td>
+      <td></td>
+      <td align='left'>1</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>6</sub></td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{11}{7}$$</td>
+      <td>$$- \frac{2}{7}$$</td>
+      <td>$$\frac{1}{14}$$</td>
+      <td>1</td>
+      <td align='left'>2</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>1</sub></td>
+      <td>8</td>
+      <td>1</td>
+      <td></td>
+      <td>$$\frac{11}{7}$$</td>
+      <td>$$\frac{2}{7}$$</td>
+      <td>$$- \frac{1}{14}$$</td>
+      <td></td>
+      <td align='left'>3</td>
+    </tr>
+    <tr align='center'>
+      <td>(-z)</td>
+      <td>$$-50 \frac{4}{5}$$</td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{4}{7}$$</td>
+      <td>$$- \frac{11}{14}$$</td>
+      <td>$$- \frac{1}{35}$$</td>
+      <td></td>
+      <td align='left'>4</td>
+    </tr>
+  </table>
+  Since the RHS of constraint 2 is now 0, it is <b>possible to drop x<sub>6</sub> from the basis</b> as long as there is a variable to introduce to the basis.<br><br>
+  By using the entering condition, on row 2,<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <td>
+        $$t = Min_j \left\{ \left. \frac{\bar{c}_j}{\bar{a}_{2j}} \right| \bar{a}_{2j} \lt 0 \right\}$$
+      </td>
+    </tr>
+  </table>
+  We will get x<sub>3</sub> entering the basis.
+  By performing pivoting, we will get the following new values in the final tableau:<br><br>
+  <table align='center'>
+    <tr align='center'>
+      <th>Basic variables</th>
+      <th>Current values</th>
+      <th>x<sub>1</sub></th>
+      <th>x<sub>2</sub></th>
+      <th>x<sub>3</sub></th>
+      <th>x<sub>4</sub></th>
+      <th>x<sub>5</sub></th>
+      <th>x<sub>6</sub></th>
+      <th align='left'>Equation</th>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>2</sub></td>
+      <td>$$\frac{12}{5}$$</td>
+      <td>1</td>
+      <td>1</td>
+      <td></td>
+      <td>$$- \frac{1}{11}$$</td>
+      <td>$$\frac{4}{55}$$</td>
+      <td>$$- \frac{2}{11}$$</td>
+      <td align='left'>5 = 1 + $$\frac{2}{7}$$ 6</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>3</sub></td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>$$\frac{2}{11}$$</td>
+      <td>$$- \frac{1}{22}$$</td>
+      <td>$$- \frac{7}{11}$$</td>
+      <td align='left'>6 = $$- \frac{7}{11}$$ 2</td>
+    </tr>
+    <tr align='center'>
+      <td>x<sub>1</sub></td>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td align='left'>7 = 3 - $$\frac{11}{7}$$ 6</td>
+    </tr>
+    <tr align='center'>
+      <td>(-z)</td>
+      <td>$$-63 \frac{1}{2}$$</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>$$- \frac{15}{22}$$</td>
+      <td>$$- \frac{3}{55}$$</td>
+      <td>$$- \frac{4}{11}$$</td>
+      <td align='left'>8 = 4 - $$\frac{4}{7} 6$$</td>
+    </tr>
+  </table>
+  From here we see that the new optimal shadow prices are 15/22, 3/55, and 4/11 for the three constraints respectively.<br><br>
+</div>
+
+## 3.5.3 Conclusion
+<div align='justify'>
+  In general, there <i>may</i> exist an alternative optimal solution to a linear program <i>if one or more</i> of the reduced cost variables are 0. There <i>does</i> exist an alternative optimal solution if one of the nonbasic variables with <i>zero reduced cost</i> can be introduced into the basis at a positive level. In this case, <i>any weighted combination</i> of these solutions is also an alternative solution.<br><br>
+  As for alternative shadow prices, there <i>may</i> exist an alternative optimal shadow prices for a linear program <i>if one or more</i> of the RHS values in <i>final tableau</i> are 0. There <i>does</i> exist an alternative set of optimal shadow prices if the variable to enter the basis determined by the <i>minimum-ratio rule</i> has a <i>strictly negative reduced cost</i>. As in the case of alternative optimal solutions, <i>any weighted combination</i> of these solutions is also an alternative set of optimal shadow prices.<br><br>
+  Finally, it should be pointed out that all four cases can take place:<br><br>
+  <ul>
+    <li>unique solution with unique shadow prices;</li>
+    <li>unique solution with alternative optimal shadow prices;</li>
+    <li>alternative optimal solutions with unique shadow prices;</li>
+    <li>and alternative optimal solutions and alternative shadow prices simultaneously</li>
+  </ul>
+  For both alternative optimal solution and optimal shadow prices, it should be noted that it is very complex to find all sets of solutions, since in general there can exist alternative optimal solutions and alternative sets of shadow prices that cannot be reached in a single pivot.
+</div>
